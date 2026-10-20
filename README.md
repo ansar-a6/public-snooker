@@ -16,6 +16,19 @@ optional future analytics. GUI runtime checks require Windows; see
 architecture must be checked before production deployment; Microsoft runtime
 support is distinct from compatibility testing.
 
+## Build on Windows
+
+Install the [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0),
+reopen your terminal, and run this from the repository root:
+
+```powershell
+.\docs\build-windows.cmd
+```
+
+Or run `.\build-windows.cmd` from inside `docs`. The result is
+`artifacts\win-x64\SnookerClub.exe`. See [Windows build instructions](docs/build-windows.md).
+Build outputs are ignored by Git; the executable is generated on your computer.
+
 ## Build on this Linux workspace
 
 The SDK is installed locally in `.dotnet`; the wrapper also keeps NuGet packages
