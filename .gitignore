@@ -216,3 +216,23 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# .NET development tools and build artifacts
+.dotnet/
+.nuget/
+.dotnet-home/
+**/bin/
+**/obj/
+artifacts/
+.vs/
+*.user
+*.suo
+
+# Private runtime records and backups
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+backups/

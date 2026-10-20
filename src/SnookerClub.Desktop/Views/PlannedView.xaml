@@ -1,0 +1,11 @@
+<UserControl x:Class="SnookerClub.Desktop.Views.PlannedView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ScrollViewer VerticalScrollBarVisibility="Auto">
+    <StackPanel>
+      <TextBlock x:Name="Heading" FontSize="32" FontWeight="SemiBold"/>
+      <TextBlock x:Name="Subtitle" Foreground="{StaticResource MutedBrush}" Margin="0,8,0,28"/>
+      <Border Background="{StaticResource SurfaceBrush}" CornerRadius="12" Padding="28" MaxWidth="720" HorizontalAlignment="Left">
+        <StackPanel><TextBlock x:Name="Status" Foreground="#E9CE89" FontSize="20"/><TextBlock x:Name="Description" Margin="0,16,0,24"/><Button Content="← Back to dashboard" Click="GoBack" HorizontalAlignment="Left"/></StackPanel>
+      </Border>
+    </StackPanel>
+  </ScrollViewer>
+</UserControl>
