@@ -1,5 +1,10 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/SnookerClub.Desktop/SnookerClub.Desktop.csproj" />
+    <Project Path="src/SnookerClub.Core/SnookerClub.Core.csproj" />
+    <Project Path="src/SnookerClub.Infrastructure/SnookerClub.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SnookerClub.Tests/SnookerClub.Tests.csproj" />
   </Folder>
 </Solution>

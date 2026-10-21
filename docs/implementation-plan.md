@@ -1,4 +1,4 @@
-# Implementation plan — M1 foundation
+# Implementation plan — M2 persistence and sessions
 
 ## Confirmed workflow
 
@@ -50,7 +50,11 @@ edition/build and processor architecture before packaging. Choose and document
 the runtime version after checking its current compatibility/support matrix:
 https://learn.microsoft.com/en-us/dotnet/core/install/windows
 
-M1 source implements the shell, reusable cards, navigation, and disabled session
-form previews. Build/publish results are recorded in the M1 smoke-test document.
-Windows GUI verification remains pending. Existing deleted legacy documentation
-is left as found; the current blueprint is authoritative.
+M2 now implements local SQLite schema version 1, durable session starts, rate
+snapshots, minimal club/rate settings, occupied cards, saved-session detail, and
+recovery-required marking on reopening. Core contains models and validation;
+Infrastructure implements the SQLite store; Desktop coordinates UI operations.
+The executable test harness has 20 passing checks, including killed-process
+recovery. See [M2 verification](M2-smoke-tests.md) for precise scope and results.
+Windows GUI verification remains pending; no milestone commit is made before
+that checkpoint. M3 is next: catalog, stock, live frame/item entries, and totals.

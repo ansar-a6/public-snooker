@@ -25,7 +25,9 @@ artifacts\win-x64\SnookerClub.exe
 Double-click that file on a Windows x64 computer. It includes the .NET runtime,
 so the computer running the app does not need the SDK or a separate .NET install.
 Close the application before rebuilding if Windows reports that the output is
-locked. This is still the M1 preview: session saving and billing are not enabled.
+locked. This is the M2 preview: configure rates in Settings, then start test sessions.
+Session saving is enabled; billing and checkout are not yet available. See
+[M2 verification](M2-smoke-tests.md).
 
 The script uses Microsoft's
 [`dotnet publish`](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-publish)

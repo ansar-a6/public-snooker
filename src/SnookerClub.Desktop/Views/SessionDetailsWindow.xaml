@@ -1,0 +1,16 @@
+<Window x:Class="SnookerClub.Desktop.Views.SessionDetailsWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Live session" Width="600" Height="660" MinWidth="450" MinHeight="450" WindowStartupLocation="CenterOwner">
+  <ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="32">
+    <TextBlock x:Name="Customer" FontSize="28" FontWeight="SemiBold"/>
+    <TextBlock x:Name="LocationLabel" Foreground="{StaticResource MutedBrush}" Margin="0,10,0,24"/>
+    <Border Background="{StaticResource SurfaceBrush}" CornerRadius="8" Padding="20"><StackPanel>
+      <TextBlock x:Name="Started"/>
+      <TextBlock x:Name="Rate" Margin="0,12,0,0"/>
+      <TextBlock x:Name="GameInfo" Margin="0,12,0,0"/>
+    </StackPanel></Border>
+    <TextBlock x:Name="Recovery" Foreground="#E9CE89" Margin="0,20,0,0"/>
+    <TextBlock Text="Saved activity" FontSize="20" Margin="0,24,0,12"/>
+    <ItemsControl x:Name="Events"><ItemsControl.ItemTemplate><DataTemplate><TextBlock Text="{Binding}" Margin="0,0,0,8"/></DataTemplate></ItemsControl.ItemTemplate></ItemsControl>
+    <TextBlock Text="M2 preview: adding frames/items, ending sessions, billing, payments, and manual recovery review arrive in later milestones." Foreground="{StaticResource MutedBrush}" Margin="0,24,0,24"/>
+    <Button Content="Close" IsCancel="True" HorizontalAlignment="Right"/>
+  </StackPanel></ScrollViewer>
+</Window>

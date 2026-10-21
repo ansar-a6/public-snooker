@@ -9,4 +9,7 @@
     <AssemblyName>SnookerClub</AssemblyName>
     <RootNamespace>SnookerClub.Desktop</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../SnookerClub.Infrastructure/SnookerClub.Infrastructure.csproj" />
+  </ItemGroup>
 </Project>

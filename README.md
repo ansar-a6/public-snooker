@@ -3,18 +3,25 @@
 An offline Windows 10/11 desktop application for one club owner to manage table
 sessions, canteen purchases, inventory, bills, payments, and historical records.
 
-## M1 status
+## M2 status
 
-Implemented: dark WPF dashboard, seven table cards in the physical layout,
-Private Room, non-bookable Counter, navigation placeholders, and session form
-previews. Session creation is disabled until M2 adds persistence. No production
-prices or customer records are included.
+Implemented: dark dashboard, navigation, persistent SQLite storage, club/rate
+settings, starting sessions on all eight locations, occupied cards, saved session
+details, and restoration after reopening. Configure rates in Settings before
+starting a session; no production prices are supplied.
 
-C#/.NET 10 and WPF power the desktop application. SQLite starts in M2; Python is
-optional future analytics. GUI runtime checks require Windows; see
-[the smoke checklist](docs/M1-smoke-tests.md). Windows 10 edition/build and CPU
-architecture must be checked before production deployment; Microsoft runtime
-support is distinct from compatibility testing.
+Sessions are saved under `%LOCALAPPDATA%\SnookerClub\club.db`, separately from
+the executable. Existing sessions retain their original rates. Reopened sessions
+show a recovery-review warning; manual interruption-time review comes in M6.
+
+This is a development preview: use fictional test customers. Frame/item entry,
+checkout, table release, billing, payments, and Private Room countdowns are not
+implemented yet. There is no reset/delete feature. See the
+[M2 scope and Windows smoke checks](docs/M2-smoke-tests.md).
+
+C#/.NET 10 and WPF power the desktop application; SQLite handles local persistence.
+Python remains optional future analytics. Windows GUI checks remain pending.
+Windows edition/build and architecture must be checked before production deployment.
 
 ## Build on Windows
 
@@ -43,8 +50,8 @@ and CLI state inside ignored project folders. It does not change system PATH.
 The Windows x64 preview executable is `artifacts/win-x64/SnookerClub.exe`.
 Copy it to Windows and double-click it. Native runtime libraries may extract to
 the Windows user's temporary directory. No separate .NET installation is needed.
-This preview creates no database. Future records will be stored separately from
-the executable. Use the appropriate runtime identifier for other architectures.
+The local database is stored separately from the executable in the user-data
+folder shown above. Use the appropriate runtime identifier for other architectures.
 
 To install the local SDK on a fresh Linux checkout:
 
@@ -58,6 +65,17 @@ On Windows with the .NET 10 SDK installed, use `dotnet` in place of the wrapper:
 ```powershell
 dotnet run --project src/SnookerClub.Desktop
 ```
+
+## Automated verification
+
+```powershell
+dotnet run --project tests/SnookerClub.Tests -c Release
+```
+
+On this Linux workspace, use `./scripts/dotnet.sh` in place of `dotnet`. The
+executable test harness runs 20 checks using temporary databases, including
+transaction rollback, concurrent starts, and recovery after killing a process.
+It returns a nonzero exit code on failure; use `dotnet run`, not `dotnet test`.
 
 ## Development rules
 

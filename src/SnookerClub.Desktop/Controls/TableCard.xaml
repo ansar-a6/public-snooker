@@ -1,13 +1,13 @@
-<UserControl x:Class="SnookerClub.Desktop.Controls.TableCard" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="Card">
-  <Button Click="OpenLocation" Background="{StaticResource SurfaceBrush}" BorderBrush="#D27878" Padding="20" HorizontalContentAlignment="Stretch" AutomationProperties.Name="{Binding LocationName, ElementName=Card}">
+<UserControl x:Class="SnookerClub.Desktop.Controls.TableCard" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Button x:Name="CardButton" Click="OpenLocation" PreviewMouseRightButtonUp="QuickEntry" IsEnabled="False" Background="{StaticResource SurfaceBrush}" BorderBrush="#D27878" Padding="20" HorizontalContentAlignment="Stretch">
     <Grid MinHeight="180">
       <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
-      <TextBlock Text="AVAILABLE" Foreground="#F1AAAA" FontSize="12" FontWeight="SemiBold"/>
+      <TextBlock x:Name="StatusLabel" Text="LOADING" Foreground="#F1AAAA" FontSize="12" FontWeight="SemiBold"/>
       <StackPanel Grid.Row="1" VerticalAlignment="Center" Margin="0,20">
-        <TextBlock Text="{Binding LocationName, ElementName=Card}" FontSize="26" FontWeight="SemiBold"/>
-        <TextBlock Text="{Binding Subtitle, ElementName=Card}" Foreground="{StaticResource MutedBrush}" Margin="0,8,0,0" FontSize="13"/>
+        <TextBlock x:Name="TitleLabel" FontSize="26" FontWeight="SemiBold" TextTrimming="CharacterEllipsis" MaxHeight="108"/>
+        <TextBlock x:Name="SubtitleLabel" Foreground="{StaticResource MutedBrush}" Margin="0,8,0,0" FontSize="13"/>
       </StackPanel>
-      <TextBlock Grid.Row="2" Text="Start session  →" Foreground="#E9CE89" FontSize="13"/>
+      <TextBlock x:Name="ActionLabel" Grid.Row="2" Text="Loading saved sessions…" Foreground="#E9CE89" FontSize="13"/>
     </Grid>
   </Button>
 </UserControl>

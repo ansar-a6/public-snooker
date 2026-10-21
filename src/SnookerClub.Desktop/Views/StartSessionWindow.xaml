@@ -1,17 +1,20 @@
-<Window x:Class="SnookerClub.Desktop.Views.StartSessionWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Start session — preview" Width="520" SizeToContent="Height" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
-  <StackPanel Margin="32">
+<Window x:Class="SnookerClub.Desktop.Views.StartSessionWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Start session" Width="540" Height="650" MinHeight="500" WindowStartupLocation="CenterOwner">
+  <ScrollViewer VerticalScrollBarVisibility="Auto">
+  <StackPanel x:Name="Form" Margin="32">
     <TextBlock x:Name="Heading" FontSize="28" FontWeight="SemiBold"/>
-    <TextBlock Text="Session form preview" Foreground="#E9CE89" Margin="0,8,0,24"/>
+    <TextBlock Text="Start time and price will be saved immediately." Foreground="#E9CE89" Margin="0,8,0,24"/>
     <Label Content="Customer name (required)" Target="{Binding ElementName=CustomerName}" Foreground="{StaticResource TextBrush}" Padding="0,0,0,8"/>
     <TextBox x:Name="CustomerName" MaxLength="120" AutomationProperties.Name="Customer name"/>
     <StackPanel x:Name="StandardOptions" Margin="0,20,0,0">
       <TextBlock Text="Game type"/>
-      <StackPanel Orientation="Horizontal"><RadioButton Content="Billiards" GroupName="Game" IsChecked="True"/><RadioButton Content="Century" GroupName="Game"/></StackPanel>
+      <StackPanel Orientation="Horizontal"><RadioButton Content="Billiards" GroupName="Game" IsChecked="True" Checked="GameChanged"/><RadioButton x:Name="Century" Content="Century" GroupName="Game" Checked="GameChanged"/></StackPanel>
       <TextBlock Text="Players: 2" Foreground="{StaticResource MutedBrush}"/>
     </StackPanel>
-    <TextBlock x:Name="RoomDetails" Text="Private Room · One-hour countdown. No game selection required." Margin="0,20,0,0" Visibility="Collapsed"/>
-    <TextBlock Text="Rates are not configured yet." Foreground="{StaticResource MutedBrush}" Margin="0,20,0,0"/>
-    <Border Background="{StaticResource SurfaceBrush}" CornerRadius="8" Padding="16" Margin="0,24,0,24"><TextBlock Text="Starting and saving sessions will be available in M2. This preview does not create a session or save the entered name."/></Border>
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"><Button Content="Cancel" IsCancel="True" Margin="0,0,12,0"/><Button Content="Start session" IsEnabled="False"/></StackPanel>
+    <TextBlock x:Name="RoomDetails" Text="Private Room · Full first-hour rate. Countdown and continuation arrive in M5." Margin="0,20,0,0" Visibility="Collapsed"/>
+    <TextBlock x:Name="RateLabel" Text="Loading saved rates…" Foreground="{StaticResource MutedBrush}" Margin="0,20,0,0"/>
+    <Border Background="{StaticResource SurfaceBrush}" CornerRadius="8" Padding="16" Margin="0,24,0,16"><TextBlock Text="M2 preview: sessions are saved, but ending sessions, billing, and payments are not available yet. Use fictional test customers."/></Border>
+    <TextBlock x:Name="Feedback" Foreground="#F1AAAA" Margin="0,0,0,16" AutomationProperties.LiveSetting="Polite"/>
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"><Button Content="Cancel" IsCancel="True" Margin="0,0,12,0"/><Button x:Name="StartButton" Content="Start session" Click="StartSession" IsEnabled="False"/></StackPanel>
   </StackPanel>
+  </ScrollViewer>
 </Window>

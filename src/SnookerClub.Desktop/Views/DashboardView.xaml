@@ -2,23 +2,23 @@
   <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
     <StackPanel>
       <TextBlock Text="The club floor" FontSize="32" FontWeight="SemiBold"/>
-      <TextBlock Text="Choose an available table to open the session form." Foreground="{StaticResource MutedBrush}" Margin="0,8,0,28"/>
-      <Grid>
+      <TextBlock x:Name="Summary" Text="Loading saved sessions…" Foreground="{StaticResource MutedBrush}" Margin="0,8,0,28"/>
+      <Grid x:Name="Floor">
         <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
         <Grid.RowDefinitions><RowDefinition/><RowDefinition/></Grid.RowDefinitions>
-        <controls:TableCard LocationName="Table 5" Margin="0,0,8,16"/>
-        <controls:TableCard Grid.Column="1" LocationName="Table 4" Margin="8,0,8,16"/>
-        <controls:TableCard Grid.Column="2" LocationName="Table 3" Margin="8,0,8,16"/>
-        <controls:TableCard Grid.Column="3" LocationName="Table 2" Margin="8,0,8,16"/>
-        <controls:TableCard Grid.Column="4" LocationName="Table 1" Margin="8,0,0,16"/>
-        <controls:TableCard Grid.Row="1" LocationName="Table 6" Margin="0,0,8,0"/>
-        <controls:TableCard Grid.Row="1" Grid.Column="1" LocationName="Table 7" Margin="8,0,8,0"/>
+        <controls:TableCard LocationId="table-5" Margin="0,0,8,16"/>
+        <controls:TableCard Grid.Column="1" LocationId="table-4" Margin="8,0,8,16"/>
+        <controls:TableCard Grid.Column="2" LocationId="table-3" Margin="8,0,8,16"/>
+        <controls:TableCard Grid.Column="3" LocationId="table-2" Margin="8,0,8,16"/>
+        <controls:TableCard Grid.Column="4" LocationId="table-1" Margin="8,0,0,16"/>
+        <controls:TableCard Grid.Row="1" LocationId="table-6" Margin="0,0,8,0"/>
+        <controls:TableCard Grid.Row="1" Grid.Column="1" LocationId="table-7" Margin="8,0,8,0"/>
         <Border Grid.Row="1" Grid.Column="2" Background="#172023" CornerRadius="8" BorderBrush="#425653" BorderThickness="1" Margin="8,0,8,0" Padding="20">
           <StackPanel VerticalAlignment="Center"><TextBlock Text="Counter" FontSize="24"/><TextBlock Text="Owner / cashier" Foreground="{StaticResource MutedBrush}" Margin="0,10,0,0"/><TextBlock Text="Not a playing table" Foreground="{StaticResource MutedBrush}" FontSize="12" Margin="0,20,0,0"/></StackPanel>
         </Border>
-        <controls:TableCard Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" LocationName="Private Room" IsPrivateRoom="True" Subtitle="One-hour countdown · Private space" Margin="8,0,0,0"/>
+        <controls:TableCard Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" LocationId="private-room" Margin="8,0,0,0"/>
       </Grid>
-      <TextBlock Text="Available tables have a red outline and an AVAILABLE label. Right-click on an empty table has no action." Foreground="{StaticResource MutedBrush}" FontSize="12" Margin="0,24,0,0"/>
+      <TextBlock Text="Left-click to start or view a session. Red outlines mark available locations; customer names mark occupied locations." Foreground="{StaticResource MutedBrush}" FontSize="12" Margin="0,24,0,0"/>
     </StackPanel>
   </ScrollViewer>
 </UserControl>

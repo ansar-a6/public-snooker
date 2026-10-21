@@ -1,0 +1,17 @@
+<Window x:Class="SnookerClub.Desktop.Views.SettingsWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Club settings" Width="580" Height="730" MinHeight="500" WindowStartupLocation="CenterOwner">
+  <ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel x:Name="Form" Margin="32" IsEnabled="False">
+    <TextBlock Text="Club and game rates" FontSize="28" FontWeight="SemiBold"/>
+    <TextBlock Text="Currency: PKR (Rs). Use a dot for decimals, with up to two decimal places. A blank rate leaves that game unavailable." Foreground="{StaticResource MutedBrush}" Margin="0,12,0,20"/>
+    <Label Content="Club name" Target="{Binding ElementName=ClubName}" Foreground="{StaticResource TextBrush}"/>
+    <TextBox x:Name="ClubName" MaxLength="120"/>
+    <Label Content="Billiards — Rs per frame" Target="{Binding ElementName=BilliardsRate}" Foreground="{StaticResource TextBrush}" Margin="0,12,0,0"/>
+    <TextBox x:Name="BilliardsRate" MaxLength="20"/>
+    <Label Content="Century — Rs per minute" Target="{Binding ElementName=CenturyRate}" Foreground="{StaticResource TextBrush}" Margin="0,12,0,0"/>
+    <TextBox x:Name="CenturyRate" MaxLength="20"/>
+    <Label Content="Private Room — Rs per one-hour block" Target="{Binding ElementName=RoomRate}" Foreground="{StaticResource TextBrush}" Margin="0,12,0,0"/>
+    <TextBox x:Name="RoomRate" MaxLength="20"/>
+    <TextBlock Text="Changes apply to new sessions only. Existing sessions retain their saved rates. Advanced settings are coming later." Foreground="{StaticResource MutedBrush}" Margin="0,20,0,16"/>
+    <TextBlock x:Name="Feedback" Foreground="#F1AAAA" Margin="0,0,0,16" AutomationProperties.LiveSetting="Polite"/>
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"><Button Content="Cancel" IsCancel="True" Margin="0,0,12,0"/><Button Content="Save settings" Click="SaveSettings"/></StackPanel>
+  </StackPanel></ScrollViewer>
+</Window>
